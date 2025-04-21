@@ -1,0 +1,31 @@
+using System;
+
+namespace HomeworkChoiseColor
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Console.WriteLine("Выберите цвет (1)Красный (2)Синий (3)Зеленный: ");
+            string Color = Console.ReadLine();
+            switch (Color)
+            {
+                case "1":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "2":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                case "3":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                default:
+                    Console.WriteLine("Такого цвет в списке нет");
+                    break;
+            }
+            Console.WriteLine("Напишите текст: ");
+            string Text = Console.ReadLine();
+        }       
+    }
+}
