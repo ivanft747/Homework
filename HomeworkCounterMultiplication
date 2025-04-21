@@ -1,0 +1,37 @@
+using System;
+
+namespace HomeworkCounterMultiplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.Write("Введите первое число: ");
+                double Number = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Введите второе число: ");
+                double Number2 = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Введите во сколько раз умножать: ");
+                double Zero = 0;
+                double Number3 = Convert.ToDouble(Console.ReadLine());
+                if (Number == Zero|| Number2 == Zero || Number3 == Zero||Number < Zero || Number2 < Zero || Number3 < Zero)
+                {
+                    Console.WriteLine("Нельзя вводить число равное и меньшее нулю");
+                    return;
+                }
+                double Multiplication = Number * Number2;
+                double Result = Multiplication * Number3;
+                Console.WriteLine(Result);
+                Console.Write("Завершить программу? (Да/Нет): ");
+                string answer = Console.ReadLine();
+                if (answer == "да" || answer == "Да" || answer == "ДА" || answer == "дА" || answer == "LA" || answer == "La" || answer == "lA" || answer == "lA")
+                {
+                    break;
+                }
+                
+            }
+        }
+    }
+}
