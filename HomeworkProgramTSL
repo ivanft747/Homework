@@ -1,0 +1,14 @@
+using System;
+using System.Globalization;
+class HomeworkProgramTSL
+{
+    static void Main()
+    {
+        DateTime CurrentTime = DateTime.Now;
+        Console.WriteLine("Время системы: " + CurrentTime);
+        string OS = Environment.OSVersion.ToString();
+        Console.WriteLine("Операционная система: " + OS);
+        CultureInfo Language = CultureInfo.CurrentCulture;
+        Console.WriteLine("Язык системы: " + Language.DisplayName);
+    }
+}
