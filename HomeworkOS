@@ -1,0 +1,152 @@
+using System.Globalization;
+using System.Threading;
+using System;
+class HomeworkProgramTSL
+{
+    static void Main()
+    {
+        while (true)
+        {
+            Console.WriteLine("Напишите свое имя (Напиши settings//настройки если хочешь попасть в биос)");
+            string Name = Console.ReadLine();
+
+            if (Name == "settings" || Name == "настройки")
+            {
+                Console.WriteLine("BIOS OS-DOLBAEB VERSION 0.1 ALPHA");
+                Console.WriteLine("1 УБРАТЬ ЗАГРУЗКУ ВКЛ + | ВЫКЛ - ");
+                Console.WriteLine("2 СМЕНИТЬ ЦВЕТ OS");
+                Console.WriteLine("3 ЫЫЫЫЫ");
+                Console.WriteLine("Напишите один раз выбранную цифру");
+                string answer = Console.ReadLine();
+
+                if (answer == "1")
+                {
+                    Console.WriteLine("Загрузка отключена");
+                }
+                else if (answer == "2")
+                {
+                    Console.WriteLine("Выберите цвет (1)Красный (2)Синий (3)Зеленный: ");
+                    string Color = Console.ReadLine();
+                    switch (Color)
+                    {
+                        case "1":
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+                        case "2":
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            break;
+                        case "3":
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            break;
+                    }
+                }
+                else if (answer == "3")
+                {
+                    while (true)
+                    {
+                        Console.WriteLine("asfvderВАФЫВИЫНЯП7Р8Г9ФОШЦ0В2Щ3О0ШЕ9Р7П64А8ЦП789МОШ9Р7Ц      ЦУК34 -=<><><><>><><><><><><><><><<><<<<><><><><>><<><><><><>");
+                    }
+                }
+                continue;
+            }
+
+            Console.Write("Загрузка\n");
+            for (int i = 0; i < 5; i++)
+            {
+                Thread.Sleep(500);
+                Console.Write("======");
+            }
+            Console.WriteLine("\nДобро пожаловать " + Name);
+            for (int i = 0; i < 5; i++)
+            {
+                Thread.Sleep(500);
+                Console.Write("======");
+            }
+
+            Console.WriteLine("\n     Пользователь -" + Name);
+            DateTime CurrentTime = DateTime.Now;
+            Console.WriteLine("Время системы: " + CurrentTime);
+            CultureInfo Language = CultureInfo.CurrentCulture;
+            Console.WriteLine("Язык системы: " + Language.DisplayName);
+            Console.WriteLine("Если хотите открыть калькулятор напишите Калькулятор,если хотите выключить систему напишите Выключение,если хотите сбросить и перезагрузить систему напиишите Перезагрузка");
+            string Action = Console.ReadLine();
+
+            if (Action == "Калькулятор")
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n=== КАЛЬКУЛЯТОР ===");
+                    Console.WriteLine("Для выхода введите 'выход'");
+                    Console.Write("Введите первое число: ");
+                    string input1 = Console.ReadLine();
+                    if (input1.ToLower() == "выход") break;
+
+                    Console.Write("Введите действие (+, -, *, /): ");
+                    char op = Console.ReadKey().KeyChar;
+                    Console.WriteLine();
+
+                    Console.Write("Введите второе число: ");
+                    string input2 = Console.ReadLine();
+
+                    try
+                    {
+                        double num1 = Convert.ToDouble(input1);
+                        double num2 = Convert.ToDouble(input2);
+                        double result = 0;
+                        bool error = false;
+
+                        switch (op)
+                        {
+                            case '+':
+                                result = num1 + num2;
+                                break;
+                            case '-':
+                                result = num1 - num2;
+                                break;
+                            case '*':
+                                result = num1 * num2;
+                                break;
+                            case '/':
+                                if (num2 != 0)
+                                    result = num1 / num2;
+                                else
+                                {
+                                    Console.WriteLine("Ошибка: деление на ноль!");
+                                    error = true;
+                                }
+                                break;
+                            default:
+                                Console.WriteLine("Ошибка: неизвестная операция!");
+                                error = true;
+                                break;
+                        }
+
+                        if (!error)
+                            Console.WriteLine($"Результат: {num1} {op} {num2} = {result}");
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Ошибка: введите корректные числа!");
+                    }
+                    Console.WriteLine("\nНажмите Enter чтобы продолжить...");
+                    Console.ReadLine();
+                }
+            }
+            else if (Action == "Выключение")
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Clear();
+                Console.WriteLine("Выключение системы...");
+                Thread.Sleep(1000);
+                break;
+            }
+            else if (Action == "Перезагрузка")
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Перезагрузка системы...");
+                Thread.Sleep(1000);
+                Console.Clear();
+            }
+        }
+    }
+}
