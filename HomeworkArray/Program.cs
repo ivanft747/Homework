@@ -1,5 +1,5 @@
 ﻿using System;
-namespace HomeworkArray
+namespace HomeworkArray2
 {
     class Program
     {
@@ -14,11 +14,25 @@ namespace HomeworkArray
                 Console.Write("Введите число для элемента " + i + " : ");
                 number[i] = int.Parse(Console.ReadLine());
             }
-            Console.WriteLine("Вы ввели массив : ");
-            for (int i = 0; i < size; i++)
+            Array.Reverse(number);
+
+            foreach (int num in number)
             {
-                Console.Write(number[i] + " ");
+                Console.Write(num + " ");
             }
+            Console.WriteLine("\nЧётные числа:");
+            foreach (int num in number)
+            {
+                if (num % 2 == 0)
+                    Console.Write(num + " ");
+            }
+            Console.WriteLine("\nНечётные числа:");
+            foreach (int num in number)
+            {
+                if (num % 2 != 0)
+                    Console.Write(num + " ");
+            }
+
         }
     }
 }
