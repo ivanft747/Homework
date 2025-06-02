@@ -1,38 +1,30 @@
 ﻿using System;
-namespace HomeworkArray2
+using System.Linq;
+namespace HomeworkArray10
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Сколько элементов в массиве вы хотите ? ");
-            Console.WriteLine();
-            int size = int.Parse(Console.ReadLine());
-            int[] number = new int[size];
-            for (int i = 0; i < size; i++)
+            Console.WriteLine("Сколько чисел в массиве?");
+            int n = int.Parse(Console.ReadLine());
+            int[] numbers = new int[n];
+            for (int i = 0; i < n; i++)
             {
-                Console.Write("Введите число для элемента " + i + " : ");
-                number[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine("Введите число:");
+                numbers[i] = int.Parse(Console.ReadLine());
             }
-            Array.Reverse(number);
-
-            foreach (int num in number)
-            {
-                Console.Write(num + " ");
-            }
-            Console.WriteLine("\nЧётные числа:");
-            foreach (int num in number)
-            {
-                if (num % 2 == 0)
-                    Console.Write(num + " ");
-            }
-            Console.WriteLine("\nНечётные числа:");
-            foreach (int num in number)
-            {
-                if (num % 2 != 0)
-                    Console.Write(num + " ");
-            }
-
+            int max1 = numbers.Max();
+            int min1 = numbers.Min();
+            Console.WriteLine("1 решение:");
+            Console.WriteLine("Максимум: " + max1);
+            Console.WriteLine("Минимум: " + min1);
+            Array.Sort(numbers);
+            int min2 = numbers[0];
+            int max2 = numbers[numbers.Length - 1];
+            Console.WriteLine("2 решение:");
+            Console.WriteLine("Максимум: " + max2);
+            Console.WriteLine("Минимум: " + min2);
         }
     }
 }
